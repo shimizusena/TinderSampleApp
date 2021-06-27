@@ -3,18 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C2249B052680395800E801E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2249B042680395800E801E8 /* AppDelegate.swift */; };
 		C2249B072680395800E801E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2249B062680395800E801E8 /* SceneDelegate.swift */; };
-		C2249B092680395800E801E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2249B082680395800E801E8 /* ViewController.swift */; };
-		C2249B0C2680395800E801E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2249B0A2680395800E801E8 /* Main.storyboard */; };
+		C2249B092680395800E801E8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2249B082680395800E801E8 /* HomeViewController.swift */; };
 		C2249B0E2680395A00E801E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2249B0D2680395A00E801E8 /* Assets.xcassets */; };
 		C2249B112680395A00E801E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2249B0F2680395A00E801E8 /* LaunchScreen.storyboard */; };
 		C2249B1C2680395A00E801E8 /* TinderSampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2249B1B2680395A00E801E8 /* TinderSampleAppTests.swift */; };
 		C2249B272680395A00E801E8 /* TinderSampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2249B262680395A00E801E8 /* TinderSampleAppUITests.swift */; };
+		C2B53BAF268338C50048CA35 /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BAE268338C50048CA35 /* BottomControlView.swift */; };
+		C2B53BB1268473060048CA35 /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BB0268473060048CA35 /* UIImage-Extension.swift */; };
+		C2B53BB42686D67F0048CA35 /* TopControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BB32686D67F0048CA35 /* TopControlView.swift */; };
+		C2B53BB72686EDEE0048CA35 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C2B53BB62686EDEE0048CA35 /* RxSwift */; };
+		C2B53BB92686EDEE0048CA35 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C2B53BB82686EDEE0048CA35 /* RxCocoa */; };
+		C2B53BBB2686EDEE0048CA35 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = C2B53BBA2686EDEE0048CA35 /* RxRelay */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +43,7 @@
 		C2249B012680395800E801E8 /* TinderSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2249B042680395800E801E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2249B062680395800E801E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C2249B082680395800E801E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C2249B0B2680395800E801E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C2249B082680395800E801E8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C2249B0D2680395A00E801E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2249B102680395A00E801E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2249B122680395A00E801E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +53,9 @@
 		C2249B222680395A00E801E8 /* TinderSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinderSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2249B262680395A00E801E8 /* TinderSampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderSampleAppUITests.swift; sourceTree = "<group>"; };
 		C2249B282680395A00E801E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2B53BAE268338C50048CA35 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
+		C2B53BB0268473060048CA35 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
+		C2B53BB32686D67F0048CA35 /* TopControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControlView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +63,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2B53BBB2686EDEE0048CA35 /* RxRelay in Frameworks */,
+				C2B53BB92686EDEE0048CA35 /* RxCocoa in Frameworks */,
+				C2B53BB72686EDEE0048CA35 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,8 +111,9 @@
 			children = (
 				C2249B042680395800E801E8 /* AppDelegate.swift */,
 				C2249B062680395800E801E8 /* SceneDelegate.swift */,
-				C2249B082680395800E801E8 /* ViewController.swift */,
-				C2249B0A2680395800E801E8 /* Main.storyboard */,
+				C2B53BB22684730A0048CA35 /* Extensions */,
+				C2B53BAB2683383C0048CA35 /* Views */,
+				C2B53BAA268338040048CA35 /* ViewControllers */,
 				C2249B0D2680395A00E801E8 /* Assets.xcassets */,
 				C2249B0F2680395A00E801E8 /* LaunchScreen.storyboard */,
 				C2249B122680395A00E801E8 /* Info.plist */,
@@ -128,6 +139,31 @@
 			path = TinderSampleAppUITests;
 			sourceTree = "<group>";
 		};
+		C2B53BAA268338040048CA35 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C2249B082680395800E801E8 /* HomeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C2B53BAB2683383C0048CA35 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C2B53BAE268338C50048CA35 /* BottomControlView.swift */,
+				C2B53BB32686D67F0048CA35 /* TopControlView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C2B53BB22684730A0048CA35 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C2B53BB0268473060048CA35 /* UIImage-Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +180,11 @@
 			dependencies = (
 			);
 			name = TinderSampleApp;
+			packageProductDependencies = (
+				C2B53BB62686EDEE0048CA35 /* RxSwift */,
+				C2B53BB82686EDEE0048CA35 /* RxCocoa */,
+				C2B53BBA2686EDEE0048CA35 /* RxRelay */,
+			);
 			productName = TinderSampleApp;
 			productReference = C2249B012680395800E801E8 /* TinderSampleApp.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +256,9 @@
 				Base,
 			);
 			mainGroup = C2249AF82680395800E801E8;
+			packageReferences = (
+				C2B53BB52686EDEE0048CA35 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = C2249B022680395800E801E8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,7 +277,6 @@
 			files = (
 				C2249B112680395A00E801E8 /* LaunchScreen.storyboard in Resources */,
 				C2249B0E2680395A00E801E8 /* Assets.xcassets in Resources */,
-				C2249B0C2680395800E801E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2249B092680395800E801E8 /* ViewController.swift in Sources */,
+				C2249B092680395800E801E8 /* HomeViewController.swift in Sources */,
 				C2249B052680395800E801E8 /* AppDelegate.swift in Sources */,
+				C2B53BB42686D67F0048CA35 /* TopControlView.swift in Sources */,
 				C2249B072680395800E801E8 /* SceneDelegate.swift in Sources */,
+				C2B53BAF268338C50048CA35 /* BottomControlView.swift in Sources */,
+				C2B53BB1268473060048CA35 /* UIImage-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +342,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C2249B0A2680395800E801E8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C2249B0B2680395800E801E8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C2249B0F2680395A00E801E8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -593,6 +631,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C2B53BB52686EDEE0048CA35 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = exactVersion;
+				version = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C2B53BB62686EDEE0048CA35 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2B53BB52686EDEE0048CA35 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		C2B53BB82686EDEE0048CA35 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2B53BB52686EDEE0048CA35 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		C2B53BBA2686EDEE0048CA35 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2B53BB52686EDEE0048CA35 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C2249AF92680395800E801E8 /* Project object */;
 }
