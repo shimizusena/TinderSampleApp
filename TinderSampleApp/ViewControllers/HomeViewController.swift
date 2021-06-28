@@ -15,14 +15,12 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .white
         
         let topControlView = TopControlView()
-        topControlView .backgroundColor = .white
         
-        let view2 = UIView()
-        view2.backgroundColor = .blue
+        let cardView = CardView() // cardView
         
         let bottomControlView = BottomControlView()
         
-        let stackView = UIStackView(arrangedSubviews: [topControlView ,view2,bottomControlView])
+        let stackView = UIStackView(arrangedSubviews: [topControlView ,cardView,bottomControlView])
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical

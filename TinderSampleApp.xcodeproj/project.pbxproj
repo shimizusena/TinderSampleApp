@@ -20,6 +20,8 @@
 		C2B53BB72686EDEE0048CA35 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C2B53BB62686EDEE0048CA35 /* RxSwift */; };
 		C2B53BB92686EDEE0048CA35 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C2B53BB82686EDEE0048CA35 /* RxCocoa */; };
 		C2B53BBB2686EDEE0048CA35 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = C2B53BBA2686EDEE0048CA35 /* RxRelay */; };
+		C2B53BBD268996A30048CA35 /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BBC268996A30048CA35 /* UIView-Extension.swift */; };
+		C2B53BBF2689B0EA0048CA35 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BBE2689B0EA0048CA35 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		C2B53BAE268338C50048CA35 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 		C2B53BB0268473060048CA35 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
 		C2B53BB32686D67F0048CA35 /* TopControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControlView.swift; sourceTree = "<group>"; };
+		C2B53BBC268996A30048CA35 /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
+		C2B53BBE2689B0EA0048CA35 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,7 @@
 			children = (
 				C2B53BAE268338C50048CA35 /* BottomControlView.swift */,
 				C2B53BB32686D67F0048CA35 /* TopControlView.swift */,
+				C2B53BBE2689B0EA0048CA35 /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				C2B53BB0268473060048CA35 /* UIImage-Extension.swift */,
+				C2B53BBC268996A30048CA35 /* UIView-Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -304,8 +310,10 @@
 				C2249B092680395800E801E8 /* HomeViewController.swift in Sources */,
 				C2249B052680395800E801E8 /* AppDelegate.swift in Sources */,
 				C2B53BB42686D67F0048CA35 /* TopControlView.swift in Sources */,
+				C2B53BBD268996A30048CA35 /* UIView-Extension.swift in Sources */,
 				C2249B072680395800E801E8 /* SceneDelegate.swift in Sources */,
 				C2B53BAF268338C50048CA35 /* BottomControlView.swift in Sources */,
+				C2B53BBF2689B0EA0048CA35 /* CardView.swift in Sources */,
 				C2B53BB1268473060048CA35 /* UIImage-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
