@@ -1,0 +1,6 @@
+framework module Pods_TinderSampleApp_TinderSampleAppUITests {
+  umbrella header "Pods-TinderSampleApp-TinderSampleAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
