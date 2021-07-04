@@ -12,6 +12,17 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupLayout()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            let registerController = RegisterViewController()
+            let nav = UINavigationController(rootViewController: registerController)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true)
+
+        }
+    }
+    
+    private func setupLayout() {
         view.backgroundColor = .white
         
         let topControlView = TopControlView()
@@ -40,10 +51,6 @@ class HomeViewController: UIViewController {
             stackView.rightAnchor.constraint(equalTo:view.rightAnchor)]
             .forEach {$0.isActive = true}
         
-        
-       
     }
-
-
 }
 

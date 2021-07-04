@@ -33,6 +33,9 @@
 		C2B53BCF268B2F930048CA35 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BCE268B2F930048CA35 /* RegisterTextField.swift */; };
 		C2B53BD1268C51990048CA35 /* RegisterTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BD0268C51990048CA35 /* RegisterTitleLabel.swift */; };
 		C2B53BD3268C54970048CA35 /* RegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BD2268C54970048CA35 /* RegisterButton.swift */; };
+		C2B53BD8268DB23F0048CA35 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BD7268DB23F0048CA35 /* RegisterViewModel.swift */; };
+		C2B53BDA268DCEBA0048CA35 /* Firebase-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BD9268DCEBA0048CA35 /* Firebase-Extension.swift */; };
+		C2B53BDC268EC3070048CA35 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BDB268EC3070048CA35 /* LoginViewController.swift */; };
 		F592542834914EE51C135647 /* Pods_TinderSampleAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D60ACB0E7D945B76A795D7 /* Pods_TinderSampleAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +91,9 @@
 		C2B53BCE268B2F930048CA35 /* RegisterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
 		C2B53BD0268C51990048CA35 /* RegisterTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTitleLabel.swift; sourceTree = "<group>"; };
 		C2B53BD2268C54970048CA35 /* RegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButton.swift; sourceTree = "<group>"; };
+		C2B53BD7268DB23F0048CA35 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		C2B53BD9268DCEBA0048CA35 /* Firebase-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase-Extension.swift"; sourceTree = "<group>"; };
+		C2B53BDB268EC3070048CA35 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E39386BE0FE1F809CF50FAF6 /* Pods-TinderSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinderSampleApp.debug.xcconfig"; path = "Target Support Files/Pods-TinderSampleApp/Pods-TinderSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F03374BF4A16967746B655BA /* Pods-TinderSampleApp-TinderSampleAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinderSampleApp-TinderSampleAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-TinderSampleApp-TinderSampleAppUITests/Pods-TinderSampleApp-TinderSampleAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +159,7 @@
 				C2B53BB22684730A0048CA35 /* Extensions */,
 				C2B53BAB2683383C0048CA35 /* Views */,
 				C2B53BAA268338040048CA35 /* ViewControllers */,
+				C2B53BD4268DB1F20048CA35 /* ViewModel */,
 				C2249B0D2680395A00E801E8 /* Assets.xcassets */,
 				C2249B0F2680395A00E801E8 /* LaunchScreen.storyboard */,
 				C2249B122680395A00E801E8 /* Info.plist */,
@@ -184,6 +191,7 @@
 			children = (
 				C2249B082680395800E801E8 /* HomeViewController.swift */,
 				C2B53BCA268B2AE40048CA35 /* RegisterViewController.swift */,
+				C2B53BDB268EC3070048CA35 /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -204,6 +212,7 @@
 				C2B53BC4268A147B0048CA35 /* UIButton-Extension.swift */,
 				C2B53BC02689EA3F0048CA35 /* UIColor-Extension.swift */,
 				C2B53BBC268996A30048CA35 /* UIView-Extension.swift */,
+				C2B53BD9268DCEBA0048CA35 /* Firebase-Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -228,6 +237,14 @@
 				C2B53BD2268C54970048CA35 /* RegisterButton.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		C2B53BD4268DB1F20048CA35 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C2B53BD7268DB23F0048CA35 /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		EFC6D95F395B3FC36271AC37 /* Frameworks */ = {
@@ -503,11 +520,14 @@
 				C2249B092680395800E801E8 /* HomeViewController.swift in Sources */,
 				C2249B052680395800E801E8 /* AppDelegate.swift in Sources */,
 				C2B53BD1268C51990048CA35 /* RegisterTitleLabel.swift in Sources */,
+				C2B53BDC268EC3070048CA35 /* LoginViewController.swift in Sources */,
 				C2B53BC3268A10310048CA35 /* CardInfoLabel.swift in Sources */,
 				C2B53BB42686D67F0048CA35 /* TopControlView.swift in Sources */,
 				C2B53BBD268996A30048CA35 /* UIView-Extension.swift in Sources */,
 				C2B53BC12689EA3F0048CA35 /* UIColor-Extension.swift in Sources */,
+				C2B53BDA268DCEBA0048CA35 /* Firebase-Extension.swift in Sources */,
 				C2B53BC5268A147B0048CA35 /* UIButton-Extension.swift in Sources */,
+				C2B53BD8268DB23F0048CA35 /* RegisterViewModel.swift in Sources */,
 				C2249B072680395800E801E8 /* SceneDelegate.swift in Sources */,
 				C2B53BAF268338C50048CA35 /* BottomControlView.swift in Sources */,
 				C2B53BBF2689B0EA0048CA35 /* CardView.swift in Sources */,

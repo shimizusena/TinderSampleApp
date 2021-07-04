@@ -8,10 +8,12 @@
 import UIKit
 import RxSwift
 import FirebaseAuth
+import FirebaseFirestore
 
 class RegisterViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
+    private let viewModel = RegisterViewModel()
     
     //MARK: - UIViews
     
@@ -22,12 +24,17 @@ class RegisterViewController: UIViewController {
     
     private let registerButton = RegisterButton()
     
+    private let alreadyHaveAccountButton = UIButton(type: .system).createAboutAccountButton()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupGradientLayer()
         setupLayout()
         setupBindings()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
     }
     //MARK: - Methods
 
@@ -50,50 +57,69 @@ class RegisterViewController: UIViewController {
         baseStackView.spacing = 20
         view.addSubview(baseStackView)
         view.addSubview(titleLabel)
+        view.addSubview(alreadyHaveAccountButton)
         
         nameTextField.anchor(height:40)
         baseStackView.anchor(left:view.leftAnchor,right: view.rightAnchor,centerY: view.centerYAnchor, leftPadding: 40,rightPadding: 40)
         titleLabel.anchor(bottom:baseStackView.topAnchor,centerX: view.centerXAnchor,bottomPadding: 20)
+        alreadyHaveAccountButton.anchor(top:baseStackView.bottomAnchor,centerX: view.centerXAnchor,topPadding: 20)
     }
     
     private func setupBindings () {
         
+//      textFieldのbinding
         nameTextField.rx.text.asDriver()
             .drive { [weak self]text in
-                
+                self?.viewModel.nameTextInput.onNext(text ?? "")
             }
             .disposed(by: disposeBag)
         
         emailTextField.rx.text.asDriver()
             .drive { [weak self]text in
-                
+                self?.viewModel.emailTextInput.onNext(text ?? "")
             }
             .disposed(by: disposeBag)
         
         passwordTextField.rx.text.asDriver()
             .drive { [weak self]text in
-                
+                self?.viewModel.passwordTextInput.onNext(text ?? "")
             }
             .disposed(by: disposeBag)
 
         registerButton.rx.tap
             .asDriver()
             .drive { [weak self] _ in
-                self?.createUserToFireAuth()
+                self?.creatUser()
             }
             .disposed(by: disposeBag)
-    }
-    
-    private func createUserToFireAuth () {
-        guard let email = emailTextField.text else {return}
-        guard let password = passwordTextField.text else {return}
-        Auth.auth().createUser(withEmail: email, password: password) { auth, error in
-            if let e = error {
-                print("auth情報の保存に失敗")
-                return
+        
+        alreadyHaveAccountButton.rx.tap
+            .asDriver()
+            .drive { [weak self] _ in
+                let login = LoginViewController()
+                self?.navigationController?.pushViewController(login, animated: true)
             }
-            guard let uid = auth?.user.uid else {return}
-            print("uidの取得に成功",uid)
+//        viewModelのバインディング
+        viewModel.validRegisterDriver
+            .drive { validAll in
+                self.registerButton.isEnabled = validAll
+                self.registerButton.backgroundColor = validAll ? .rgb(red: 227, green: 48, blue: 78) : .init(white:0.7,alpha:1)
+            }
+            .disposed(by: disposeBag)
+
+    }
+    private func creatUser() {
+        let email = emailTextField.text
+        let password = passwordTextField.text
+        let name = nameTextField.text
+        
+        Auth.createUserToFireAuth(email: email, password: password, name: name) { success in
+            if success {
+                print("処理完了")
+                self.dismiss(animated: true)
+            }else {
+                print("処理失敗")
+            }
         }
     }
 }
