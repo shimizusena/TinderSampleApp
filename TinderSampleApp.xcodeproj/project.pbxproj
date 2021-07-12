@@ -36,6 +36,11 @@
 		C2B53BD8268DB23F0048CA35 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BD7268DB23F0048CA35 /* RegisterViewModel.swift */; };
 		C2B53BDA268DCEBA0048CA35 /* Firebase-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BD9268DCEBA0048CA35 /* Firebase-Extension.swift */; };
 		C2B53BDC268EC3070048CA35 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BDB268EC3070048CA35 /* LoginViewController.swift */; };
+		C2B53BDF2696D0A20048CA35 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = C2B53BDE2696D0A20048CA35 /* PKHUD */; };
+		C2B53BE2269827150048CA35 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BE1269827150048CA35 /* User.swift */; };
+		C2B53BE426992DD00048CA35 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BE326992DD00048CA35 /* ProfileViewController.swift */; };
+		C2B53BE7269BE6740048CA35 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BE6269BE6740048CA35 /* ProfileImageView.swift */; };
+		C2B53BE9269BE8D20048CA35 /* ProfileLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BE8269BE8D20048CA35 /* ProfileLabel.swift */; };
 		F592542834914EE51C135647 /* Pods_TinderSampleAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D60ACB0E7D945B76A795D7 /* Pods_TinderSampleAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +99,10 @@
 		C2B53BD7268DB23F0048CA35 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		C2B53BD9268DCEBA0048CA35 /* Firebase-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase-Extension.swift"; sourceTree = "<group>"; };
 		C2B53BDB268EC3070048CA35 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C2B53BE1269827150048CA35 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C2B53BE326992DD00048CA35 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C2B53BE6269BE6740048CA35 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		C2B53BE8269BE8D20048CA35 /* ProfileLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLabel.swift; sourceTree = "<group>"; };
 		E39386BE0FE1F809CF50FAF6 /* Pods-TinderSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinderSampleApp.debug.xcconfig"; path = "Target Support Files/Pods-TinderSampleApp/Pods-TinderSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F03374BF4A16967746B655BA /* Pods-TinderSampleApp-TinderSampleAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinderSampleApp-TinderSampleAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-TinderSampleApp-TinderSampleAppUITests/Pods-TinderSampleApp-TinderSampleAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +115,7 @@
 				C2B53BBB2686EDEE0048CA35 /* RxRelay in Frameworks */,
 				C2B53BB92686EDEE0048CA35 /* RxCocoa in Frameworks */,
 				C2B53BB72686EDEE0048CA35 /* RxSwift in Frameworks */,
+				C2B53BDF2696D0A20048CA35 /* PKHUD in Frameworks */,
 				6A10D047FEF257B89C13779B /* Pods_TinderSampleApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +166,7 @@
 			children = (
 				C2249B042680395800E801E8 /* AppDelegate.swift */,
 				C2249B062680395800E801E8 /* SceneDelegate.swift */,
+				C2B53BE0269826F70048CA35 /* Models */,
 				C2B53BB22684730A0048CA35 /* Extensions */,
 				C2B53BAB2683383C0048CA35 /* Views */,
 				C2B53BAA268338040048CA35 /* ViewControllers */,
@@ -192,6 +203,7 @@
 				C2249B082680395800E801E8 /* HomeViewController.swift */,
 				C2B53BCA268B2AE40048CA35 /* RegisterViewController.swift */,
 				C2B53BDB268EC3070048CA35 /* LoginViewController.swift */,
+				C2B53BE326992DD00048CA35 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -199,6 +211,7 @@
 		C2B53BAB2683383C0048CA35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C2B53BE5269BE64E0048CA35 /* Profile */,
 				C2B53BCC268B2F430048CA35 /* Home */,
 				C2B53BCD268B2F560048CA35 /* Register */,
 			);
@@ -247,6 +260,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		C2B53BE0269826F70048CA35 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C2B53BE1269827150048CA35 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C2B53BE5269BE64E0048CA35 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C2B53BE6269BE6740048CA35 /* ProfileImageView.swift */,
+				C2B53BE8269BE8D20048CA35 /* ProfileLabel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		EFC6D95F395B3FC36271AC37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +322,7 @@
 				C2B53BB62686EDEE0048CA35 /* RxSwift */,
 				C2B53BB82686EDEE0048CA35 /* RxCocoa */,
 				C2B53BBA2686EDEE0048CA35 /* RxRelay */,
+				C2B53BDE2696D0A20048CA35 /* PKHUD */,
 			);
 			productName = TinderSampleApp;
 			productReference = C2249B012680395800E801E8 /* TinderSampleApp.app */;
@@ -369,6 +400,7 @@
 			mainGroup = C2249AF82680395800E801E8;
 			packageReferences = (
 				C2B53BB52686EDEE0048CA35 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				C2B53BDD2696D0A20048CA35 /* XCRemoteSwiftPackageReference "PKHUD" */,
 			);
 			productRefGroup = C2249B022680395800E801E8 /* Products */;
 			projectDirPath = "";
@@ -524,6 +556,7 @@
 				C2B53BC3268A10310048CA35 /* CardInfoLabel.swift in Sources */,
 				C2B53BB42686D67F0048CA35 /* TopControlView.swift in Sources */,
 				C2B53BBD268996A30048CA35 /* UIView-Extension.swift in Sources */,
+				C2B53BE2269827150048CA35 /* User.swift in Sources */,
 				C2B53BC12689EA3F0048CA35 /* UIColor-Extension.swift in Sources */,
 				C2B53BDA268DCEBA0048CA35 /* Firebase-Extension.swift in Sources */,
 				C2B53BC5268A147B0048CA35 /* UIButton-Extension.swift in Sources */,
@@ -531,10 +564,13 @@
 				C2249B072680395800E801E8 /* SceneDelegate.swift in Sources */,
 				C2B53BAF268338C50048CA35 /* BottomControlView.swift in Sources */,
 				C2B53BBF2689B0EA0048CA35 /* CardView.swift in Sources */,
+				C2B53BE7269BE6740048CA35 /* ProfileImageView.swift in Sources */,
+				C2B53BE9269BE8D20048CA35 /* ProfileLabel.swift in Sources */,
 				C2B53BCF268B2F930048CA35 /* RegisterTextField.swift in Sources */,
 				C2B53BCB268B2AE40048CA35 /* RegisterViewController.swift in Sources */,
 				C2B53BC7268A15ED0048CA35 /* CardImageView.swift in Sources */,
 				C2B53BB1268473060048CA35 /* UIImage-Extension.swift in Sources */,
+				C2B53BE426992DD00048CA35 /* ProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -875,6 +911,14 @@
 				version = 6.0.0;
 			};
 		};
+		C2B53BDD2696D0A20048CA35 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pkluz/PKHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -892,6 +936,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C2B53BB52686EDEE0048CA35 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxRelay;
+		};
+		C2B53BDE2696D0A20048CA35 /* PKHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2B53BDD2696D0A20048CA35 /* XCRemoteSwiftPackageReference "PKHUD" */;
+			productName = PKHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import FirebaseAuth
 import FirebaseFirestore
+import PKHUD
 
 class RegisterViewController: UIViewController {
     
@@ -22,9 +23,10 @@ class RegisterViewController: UIViewController {
     private let emailTextField = RegisterTextField(placeHolderText: "メールアドレス")
     private let passwordTextField = RegisterTextField(placeHolderText: "パスワード")
     
-    private let registerButton = RegisterButton()
+    private let registerButton = RegisterButton(text: "登録")
     
     private let alreadyHaveAccountButton = UIButton(type: .system).createAboutAccountButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -99,6 +101,7 @@ class RegisterViewController: UIViewController {
                 let login = LoginViewController()
                 self?.navigationController?.pushViewController(login, animated: true)
             }
+            .disposed(by: disposeBag)
 //        viewModelのバインディング
         viewModel.validRegisterDriver
             .drive { validAll in
@@ -113,10 +116,12 @@ class RegisterViewController: UIViewController {
         let password = passwordTextField.text
         let name = nameTextField.text
         
+        HUD.show(.progress)
         Auth.createUserToFireAuth(email: email, password: password, name: name) { success in
             if success {
                 print("処理完了")
                 self.dismiss(animated: true)
+                HUD.hide()
             }else {
                 print("処理失敗")
             }
