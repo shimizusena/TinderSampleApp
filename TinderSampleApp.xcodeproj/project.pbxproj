@@ -16,6 +16,7 @@
 		C2249B112680395A00E801E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2249B0F2680395A00E801E8 /* LaunchScreen.storyboard */; };
 		C2249B1C2680395A00E801E8 /* TinderSampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2249B1B2680395A00E801E8 /* TinderSampleAppTests.swift */; };
 		C2249B272680395A00E801E8 /* TinderSampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2249B262680395A00E801E8 /* TinderSampleAppUITests.swift */; };
+		C29A340626D0F3410099BD3D /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29A340526D0F3410099BD3D /* ProfileTextField.swift */; };
 		C2B53BAF268338C50048CA35 /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BAE268338C50048CA35 /* BottomControlView.swift */; };
 		C2B53BB1268473060048CA35 /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BB0268473060048CA35 /* UIImage-Extension.swift */; };
 		C2B53BB42686D67F0048CA35 /* TopControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BB32686D67F0048CA35 /* TopControlView.swift */; };
@@ -82,6 +83,7 @@
 		C2249B222680395A00E801E8 /* TinderSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinderSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2249B262680395A00E801E8 /* TinderSampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderSampleAppUITests.swift; sourceTree = "<group>"; };
 		C2249B282680395A00E801E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C29A340526D0F3410099BD3D /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
 		C2B53BAE268338C50048CA35 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 		C2B53BB0268473060048CA35 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
 		C2B53BB32686D67F0048CA35 /* TopControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControlView.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			children = (
 				C2B53BE6269BE6740048CA35 /* ProfileImageView.swift */,
 				C2B53BE8269BE8D20048CA35 /* ProfileLabel.swift */,
+				C29A340526D0F3410099BD3D /* ProfileTextField.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				C2B53BE2269827150048CA35 /* User.swift in Sources */,
 				C2B53BC12689EA3F0048CA35 /* UIColor-Extension.swift in Sources */,
 				C2B53BDA268DCEBA0048CA35 /* Firebase-Extension.swift in Sources */,
+				C29A340626D0F3410099BD3D /* ProfileTextField.swift in Sources */,
 				C2B53BC5268A147B0048CA35 /* UIButton-Extension.swift in Sources */,
 				C2B53BD8268DB23F0048CA35 /* RegisterViewModel.swift in Sources */,
 				C2249B072680395800E801E8 /* SceneDelegate.swift in Sources */,

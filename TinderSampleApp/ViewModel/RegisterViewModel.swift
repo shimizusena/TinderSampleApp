@@ -25,6 +25,7 @@ protocol RegisterViewModelOutputs {
 class RegisterViewModel:RegisterViewModelInputs,RegisterViewModelOutputs{
     
     private let disposeBag = DisposeBag()
+    
     //MARK: - observable
     var nameTextOutput = PublishSubject<String>()
     var emailTextOutput = PublishSubject<String>()
