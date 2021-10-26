@@ -10,6 +10,7 @@ import UIKit
 class ProfileLabel: UILabel {
     init() {
         super.init(frame: .zero)
+        self.font = .systemFont(ofSize: 45, weight: .bold)
         self.textColor = .black
         
     }

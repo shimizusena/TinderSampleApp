@@ -50,7 +50,8 @@ extension Firestore {
         let document = [
             "name": name,
             "email" : email,
-            "createAt" : Timestamp()
+            "createAt" : Timestamp(),
+            "uid":uid
         ] as [String : Any]
         Firestore.firestore().collection("users").document(uid).setData(document) { error in
             if let e = error {
@@ -65,7 +66,8 @@ extension Firestore {
     static func fetchUserFromFirestore(uid:String,completion: @escaping (User?) -> Void) {
         
         Firestore.firestore().collection("users")
-            .document(uid).getDocument { snapshot, err in
+            .document(uid).addSnapshotListener{ snapshot, err in
+
                 
                 if let err = err {
                     print("ユーザー情報を取得に失敗")
@@ -92,7 +94,62 @@ extension Firestore {
                 let user = User(dic: dic)
                 return user
             })
+            
+            let filterdUsers = users?.filter({ (user) -> Bool in
+                return user.uid != Auth.auth().currentUser?.uid
+            })
             completion(users ?? [User]())
+        }
+    }
+    
+//    ユーザー情報更新
+    static func updateUserInfo(dic:[String:Any],completion: @escaping () -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        
+        Firestore.firestore().collection("users").document(uid).updateData(dic) { err in
+            if let err = err {
+                print("ユーザー情報アップデート失敗",err)
+            }
+            completion()
+            print("ユーザー情報更新に成功")
+        }
+    }
+}
+
+//MARK: - Storage
+
+extension Storage {
+    
+//    ユーザー情報をFireStrageに保存
+    static func addProfileImageToStorage(image:UIImage,dic:[String:Any],completion: @escaping () -> Void) {
+        guard  let uploadImage = image.jpegData(compressionQuality: 0.3) else {return}
+        
+        let filename = NSUUID().uuidString
+        
+        let storageRef = Storage.storage().reference().child("profile_image").child(filename)
+        
+        
+        
+        storageRef.putData(uploadImage, metadata: nil) { metadata, error in
+            
+            if let err = error {
+                print("画像の保存に失敗しました",err)
+                return
+            }
+            storageRef.downloadURL { url, error in
+                if let err = error {
+                    print("画像の取得に失敗")
+                    return
+                }
+                guard let urlString = url?.absoluteString else {return}
+                var dicWithImage = dic
+                dicWithImage["profileImageUrl"] = urlString
+                
+                Firestore.updateUserInfo(dic: dicWithImage) {
+                    completion()
+                }
+            }
+                print("画像の保存に成功しました")
         }
     }
 }

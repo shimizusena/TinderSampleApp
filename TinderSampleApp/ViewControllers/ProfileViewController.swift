@@ -6,10 +6,26 @@
 //
 
 import UIKit
+import RxSwift
+import FirebaseFirestore
+import FirebaseStorage
+import SDWebImage
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
-    
+    //MARK: - Propaties
+    var user:User?
     private let cellId = "cellid"
+    private var hasChangedImage = false
+    private let disposeBag = DisposeBag()
+    
+    private var name = ""
+    private var age = ""
+    private var email = ""
+    private var residence = ""
+    private var hobby = ""
+    private var introduction = ""
+    
     
     let saveButton = UIButton(type: .system).createProfileTopButton(title: "保存")
     let logoutButton = UIButton(type: .system).createProfileTopButton(title: "ログアウト")
@@ -23,21 +39,73 @@ class ProfileViewController: UIViewController {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.delegate = self
         cv.dataSource = self
-        cv.backgroundColor = .brown
-        cv.register(infoCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        cv.backgroundColor = .white
+        cv.register(InfoCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         return cv
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                setupLayout()
+        setupLayout()
+        setupBindings()
     }
     
+    private func setupBindings() {
+        saveButton.rx.tap
+            .asDriver()
+            .drive { [weak self] _ in
+                guard let self = self else {return}
+                
+                let dic = [
+                    "name":self.name,
+                    "age":self.age,
+                    "email":self.email,
+                    "residence":self.residence,
+                    "hobby":self.hobby,
+                    "introduction":self.introduction,
+                    "uid":Auth.auth().currentUser?.uid
+                ]
+                
+                if self.hasChangedImage {
+                    //                    画像保存の処理
+                    guard let image = self.profileImageView.image else {return}
+                    Storage.addProfileImageToStorage(image: image, dic: dic) {
+                        
+                    }
+                } else {
+                    Firestore.updateUserInfo(dic: dic) {
+                        print("更新完了")
+                    }
+                }
+                
+            }
+            .disposed(by:disposeBag)
+        
+        profileEditButton.rx.tap.asDriver()
+            .drive(){ [weak self] _ in
+                let pickerView = UIImagePickerController()
+                pickerView.delegate = self
+                
+                self?.present(pickerView, animated: true, completion: nil)
+            }
+            .disposed(by:disposeBag)
+        logoutButton.rx.tap.asDriver()
+            .drive(){ [weak self] _ in
+                self?.logout()
+            }
+            .disposed(by:disposeBag)
+    }
     private func setupLayout() {
         
         nameLabel.text = "あんでぃーだよ"
         view.backgroundColor = .white
-
+        
+        //        画像を丸くする
+        profileImageView.contentMode = .scaleAspectFill
+        profileImageView.layer.cornerRadius = 90
+        profileImageView.layer.masksToBounds = true
+        
+        //        View配置の設定
         view.addSubview(saveButton)
         view.addSubview(logoutButton)
         view.addSubview(nameLabel)
@@ -52,74 +120,101 @@ class ProfileViewController: UIViewController {
         nameLabel.anchor(top: profileImageView.bottomAnchor, centerX: view.centerXAnchor, topPadding: 20)
         profileEditButton.anchor(top: profileImageView.topAnchor, right: profileImageView.rightAnchor, width: 60, height: 60)
         infoCollectionView.anchor(top:nameLabel.bottomAnchor,bottom:view.bottomAnchor, left: view.leftAnchor,right: view.rightAnchor,topPadding: 20)
-//        infoColletionView.anchor(top: nameLabel.bottomAnchor, bottom: view.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, topPadding: 20)
-        
+        //        ユーザー情報時の反映
+        nameLabel.text = user?.name
+        if let url = URL(string: user?.profileImageUrl ?? "") {
+            profileImageView.sd_setImage(with: url)
+        }
+    }
+    private func logout() {
+        do {
+            try Auth.auth().signOut()
+            self.dismiss(animated: true, completion: nil)
+            
+        } catch {
+            print("ログアウト失敗",error)
+        }
+    }
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        super.dismiss(animated: flag, completion: completion)
+        guard let presentationController = presentationController else { return }
+        presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
     }
 }
+
+//MARK: - PickerViewデリゲート
+
+extension ProfileViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            
+            profileImageView.image = image.withRenderingMode(.alwaysOriginal)
+        }
+        hasChangedImage = true
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
 
 //MARK: - デリゲートメソッド
 
 extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = infoCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! infoCollectionViewCell
+        let cell = infoCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! InfoCollectionViewCell
+        cell.user = self.user
+        setupCellBindings(cell: cell)
         return cell
     }
     
+    private func setupCellBindings(cell: InfoCollectionViewCell) {
+        cell.ageTextField.rx.text
+            .asDriver()
+            .drive { [weak self] text  in
+                self?.age = text ?? ""
+            }
+            .disposed(by: disposeBag)
+        cell.nameTextField.rx.text
+            .asDriver()
+            .drive { [weak self] text  in
+                self?.name = text ?? ""
+            }
+            .disposed(by: disposeBag)
+        
+        cell.emailTextField.rx.text
+            .asDriver()
+            .drive { [weak self] text  in
+                self?.email = text ?? ""
+            }
+            .disposed(by: disposeBag)
+        
+        cell.residenceTextField.rx.text
+            .asDriver()
+            .drive { [weak self] text  in
+                self?.residence = text ?? ""
+            }
+            .disposed(by: disposeBag)
+        
+        cell.hobbyTextField.rx.text
+            .asDriver()
+            .drive { [weak self] text  in
+                self?.hobby = text ?? ""
+            }
+            .disposed(by: disposeBag)
+        
+        cell.introductionTextField.rx.text
+            .asDriver()
+            .drive { [weak self] text  in
+                self?.introduction = text ?? ""
+            }
+            .disposed(by: disposeBag)
+        
+    }
 }
 
-//TODO　別のファイルに分ける
-class infoCollectionViewCell: UICollectionViewCell {
-    
-    
-    let nameLabel = ProfileLabel(title: "名前")
-    let ageLabel = ProfileLabel(title: "年齢")
-    let emailLabel = ProfileLabel(title: "email")
-    let regidenceLabel = ProfileLabel(title: "居住地")
-    let hobbyLabel = ProfileLabel(title: "趣味")
-    let introductionLabel = ProfileLabel(title: "自己紹介")
-    
-    let nameTextField = ProfileTextField(placeholder: "名前")
-    let ageTextField = ProfileTextField(placeholder: "年齢")
-    let emailTextField = ProfileTextField(placeholder: "email")
-    let regidenceTextField = ProfileTextField(placeholder: "居住地")
-    let hobbyTextField = ProfileTextField(placeholder: "趣味")
-    let introductionTextField = ProfileTextField(placeholder: "自己紹介")
-    
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-        backgroundColor = .brown
-//        let view = UIView()
-//        view.backgroundColor = .blue
-        
-        
-        let views = [[nameLabel,nameTextField],[ageLabel,ageTextField],[emailLabel,emailTextField],[regidenceLabel,regidenceTextField],[hobbyLabel,hobbyTextField],[introductionLabel,introductionTextField]]
-        let stackViews = views.map { (views) -> UIStackView in
-            guard let label = views.first as? UILabel,
-                  let textField = views.last as? UITextField else {return UIStackView()}
-            
-            let stackView = UIStackView(arrangedSubviews: [label,textField])
-            stackView.axis = .vertical
-            stackView.spacing = 5
-            textField.anchor(height:50)
-            return stackView
-         }
-        
-        let baseStackView = UIStackView(arrangedSubviews: stackViews)
-        baseStackView.axis = .vertical
-        baseStackView.spacing = 15
-        
-        addSubview(baseStackView)
-        nameTextField.anchor(width: UIScreen.main.bounds.width - 40, height:80)
-        baseStackView.anchor(top:topAnchor,bottom : bottomAnchor, left:leftAnchor,right:rightAnchor,topPadding: 10,leftPadding: 20, rightPadding: 20)
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
 

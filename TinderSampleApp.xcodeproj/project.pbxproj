@@ -16,7 +16,9 @@
 		C2249B112680395A00E801E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2249B0F2680395A00E801E8 /* LaunchScreen.storyboard */; };
 		C2249B1C2680395A00E801E8 /* TinderSampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2249B1B2680395A00E801E8 /* TinderSampleAppTests.swift */; };
 		C2249B272680395A00E801E8 /* TinderSampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2249B262680395A00E801E8 /* TinderSampleAppUITests.swift */; };
+		C26C03CF27203B4F005DC4D2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C26C03CE27203B4F005DC4D2 /* SDWebImage */; };
 		C29A340626D0F3410099BD3D /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29A340526D0F3410099BD3D /* ProfileTextField.swift */; };
+		C29E730226DDB24400ECF2F3 /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E730126DDB24400ECF2F3 /* InfoCollectionViewCell.swift */; };
 		C2B53BAF268338C50048CA35 /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BAE268338C50048CA35 /* BottomControlView.swift */; };
 		C2B53BB1268473060048CA35 /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BB0268473060048CA35 /* UIImage-Extension.swift */; };
 		C2B53BB42686D67F0048CA35 /* TopControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B53BB32686D67F0048CA35 /* TopControlView.swift */; };
@@ -84,6 +86,7 @@
 		C2249B262680395A00E801E8 /* TinderSampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderSampleAppUITests.swift; sourceTree = "<group>"; };
 		C2249B282680395A00E801E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C29A340526D0F3410099BD3D /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
+		C29E730126DDB24400ECF2F3 /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2B53BAE268338C50048CA35 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 		C2B53BB0268473060048CA35 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
 		C2B53BB32686D67F0048CA35 /* TopControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControlView.swift; sourceTree = "<group>"; };
@@ -114,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C26C03CF27203B4F005DC4D2 /* SDWebImage in Frameworks */,
 				C2B53BBB2686EDEE0048CA35 /* RxRelay in Frameworks */,
 				C2B53BB92686EDEE0048CA35 /* RxCocoa in Frameworks */,
 				C2B53BB72686EDEE0048CA35 /* RxSwift in Frameworks */,
@@ -166,14 +170,15 @@
 		C2249B032680395800E801E8 /* TinderSampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				C2249B042680395800E801E8 /* AppDelegate.swift */,
-				C2249B062680395800E801E8 /* SceneDelegate.swift */,
+				C29E730026DDB16400ECF2F3 /* Cells */,
 				C2B53BE0269826F70048CA35 /* Models */,
 				C2B53BB22684730A0048CA35 /* Extensions */,
 				C2B53BAB2683383C0048CA35 /* Views */,
 				C2B53BAA268338040048CA35 /* ViewControllers */,
 				C2B53BD4268DB1F20048CA35 /* ViewModel */,
 				C2249B0D2680395A00E801E8 /* Assets.xcassets */,
+				C2249B042680395800E801E8 /* AppDelegate.swift */,
+				C2249B062680395800E801E8 /* SceneDelegate.swift */,
 				C2249B0F2680395A00E801E8 /* LaunchScreen.storyboard */,
 				C2249B122680395A00E801E8 /* Info.plist */,
 				C2B53BC8268B28380048CA35 /* GoogleService-Info.plist */,
@@ -199,12 +204,20 @@
 			path = TinderSampleAppUITests;
 			sourceTree = "<group>";
 		};
+		C29E730026DDB16400ECF2F3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C29E730126DDB24400ECF2F3 /* InfoCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		C2B53BAA268338040048CA35 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C2249B082680395800E801E8 /* HomeViewController.swift */,
 				C2B53BCA268B2AE40048CA35 /* RegisterViewController.swift */,
 				C2B53BDB268EC3070048CA35 /* LoginViewController.swift */,
+				C2249B082680395800E801E8 /* HomeViewController.swift */,
 				C2B53BE326992DD00048CA35 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
@@ -326,6 +339,7 @@
 				C2B53BB82686EDEE0048CA35 /* RxCocoa */,
 				C2B53BBA2686EDEE0048CA35 /* RxRelay */,
 				C2B53BDE2696D0A20048CA35 /* PKHUD */,
+				C26C03CE27203B4F005DC4D2 /* SDWebImage */,
 			);
 			productName = TinderSampleApp;
 			productReference = C2249B012680395800E801E8 /* TinderSampleApp.app */;
@@ -404,6 +418,7 @@
 			packageReferences = (
 				C2B53BB52686EDEE0048CA35 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				C2B53BDD2696D0A20048CA35 /* XCRemoteSwiftPackageReference "PKHUD" */,
+				C26C03CD27203B4E005DC4D2 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = C2249B022680395800E801E8 /* Products */;
 			projectDirPath = "";
@@ -551,6 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C29E730226DDB24400ECF2F3 /* InfoCollectionViewCell.swift in Sources */,
 				C2B53BD3268C54970048CA35 /* RegisterButton.swift in Sources */,
 				C2249B092680395800E801E8 /* HomeViewController.swift in Sources */,
 				C2249B052680395800E801E8 /* AppDelegate.swift in Sources */,
@@ -672,7 +688,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -727,7 +743,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -907,6 +923,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C26C03CD27203B4E005DC4D2 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.12.1;
+			};
+		};
 		C2B53BB52686EDEE0048CA35 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -926,6 +950,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C26C03CE27203B4F005DC4D2 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C26C03CD27203B4E005DC4D2 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		C2B53BB62686EDEE0048CA35 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C2B53BB52686EDEE0048CA35 /* XCRemoteSwiftPackageReference "RxSwift" */;

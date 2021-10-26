@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CardView: UIView {
     
@@ -16,13 +17,13 @@ class CardView: UIView {
     
     private let infoButton = UIButton(type: .system).createCardInfoButton()
     
-    private let nameLabel = CardInfoLabel(text: "Andy 22", font: .systemFont(ofSize: 40, weight: .heavy))
+    private let nameLabel = CardInfoLabel(font: .systemFont(ofSize: 40, weight: .heavy))
     
-    private let residenceLabel = CardInfoLabel(text: "日本　大阪府", font: .systemFont(ofSize: 20, weight: .regular))
+    private let residenceLabel = CardInfoLabel(font: .systemFont(ofSize: 20, weight: .regular))
     
-    private let hobbyLabel = CardInfoLabel(text: "スマブラ、魔法使い", font: .systemFont(ofSize: 25, weight: .regular))
+    private let hobbyLabel = CardInfoLabel(font: .systemFont(ofSize: 25, weight: .regular))
     
-    private let introductionLabel = CardInfoLabel(text: "3Dプリンターでネズミの籠作りました", font: .systemFont(ofSize: 20, weight: .regular))
+    private let introductionLabel = CardInfoLabel(font: .systemFont(ofSize: 20, weight: .regular))
     
     private let goodLabel = CardInfoLabel(labelText: "GOOD", labelColor: .rgb(red: 137, green: 223, blue: 86))
     
@@ -113,7 +114,12 @@ class CardView: UIView {
 //        ユーザー情報をViewに反映
         nameLabel.text = user.name
         introductionLabel.text = user.email
+        hobbyLabel.text = user.hobby
+        residenceLabel.text = user.residence
         
+        if let url = URL(string: user.profileImageUrl ?? "") {
+            cardImageView.sd_setImage(with: url)
+        }
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

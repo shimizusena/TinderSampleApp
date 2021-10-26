@@ -22,11 +22,10 @@ class  CardInfoLabel: UILabel {
         alpha = 0
     }
 //    その他のラベル
-    init(text:String,font:UIFont) {
+    init(font:UIFont) {
         super.init(frame: .zero)
         self.font = font
         self.textColor = .white
-        self.text = text
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

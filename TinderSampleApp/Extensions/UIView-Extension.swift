@@ -23,7 +23,7 @@ extension UIView {
         bottomPadding:CGFloat = 0,
         leftPadding:CGFloat = 0,
         rightPadding:CGFloat = 0
-        ) {
+    ) {
         
         self.translatesAutoresizingMaskIntoConstraints = false
         
@@ -59,7 +59,7 @@ extension UIView {
 
 extension UIView {
     
-    func removeCardViewAnimation(x:CGFloat) {
+    func removeCardViewAnimation(x:CGFloat,completion:(() -> Void)? = nil) {
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
             
             let degree:CGFloat = x / 40
@@ -69,6 +69,10 @@ extension UIView {
             self.layoutIfNeeded()
         } completion: { _ in
             self.removeFromSuperview()
+            if let completion = completion {
+                completion()
+            }
+            
         }
     }
 }
